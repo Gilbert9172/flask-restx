@@ -37,7 +37,7 @@ class Login(Resource):
         uid = db_row[0]
         user_id = db_row[1]
         pw = db_row[2]
-        print(pw)
+
         #-- DB에 있는 아이디와 일치하는지.
         if login_id['user_id'] != user_id:
             return {

@@ -1,12 +1,18 @@
-#-- Module
+#♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎
+#-- Import Flask Modules
 from flask import Flask
 from flask_restx import Api
 from flask_cors import CORS
 from sqlalchemy import create_engine
-from user.route.user.user import User
+
+#-- Import OS Modules
 from dotenv import load_dotenv
 import os
 
+#-- Import Namespace
+from route.user.user import User
+from route.photo.photo import Photo
+#♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎♦︎
 
 #-- App성성
 app = Flask(__name__)
@@ -36,7 +42,7 @@ app.db = engine
 #-- api 추가
 URL_PREFIX ='/todo'
 api.add_namespace(User, URL_PREFIX + '/auth')
-
+api.add_namespace(Photo, URL_PREFIX + '/photo')
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0" ,port=port)
